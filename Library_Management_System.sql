@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 11, 2026 at 03:08 AM
--- Server version: 8.0.46-0ubuntu0.24.04.3
--- PHP Version: 8.4.24
+-- Generation Time: Sep 26, 2026 at 06:28 AM
+-- Server version: 8.0.46-0ubuntu0.24.04.4
+-- PHP Version: 8.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,12 +29,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `authors` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `biography` text COLLATE utf8mb4_unicode_ci,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` enum('active','inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `biography` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `photo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('active','inactive') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -77,20 +77,20 @@ CREATE TABLE `books` (
   `category_id` bigint UNSIGNED NOT NULL,
   `author_id` bigint UNSIGNED NOT NULL,
   `publisher_id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `isbn` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `edition` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `language` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'English',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isbn` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `edition` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `language` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'English',
   `price` decimal(8,2) NOT NULL,
   `quantity` int NOT NULL,
   `available_quantity` int NOT NULL,
   `publish_year` year DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `cover_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` enum('available','out_of_stock') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'available',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `cover_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('available','out_of_stock') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'available',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `file_path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `file_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -108,7 +108,7 @@ INSERT INTO `books` (`id`, `category_id`, `author_id`, `publisher_id`, `title`, 
 (8, 5, 11, 3, 'Ullam sapiente similique et.', '9782089812197', '2th Edition', 'Spanish', 160.99, 9, 8, '2000', 'Qui officiis cum libero occaecati quas. Voluptatem rerum laboriosam perspiciatis eligendi nihil animi quidem. Est repudiandae eligendi beatae. Ratione qui qui at debitis.', 'https://picsum.photos/seed/book8/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
 (9, 8, 16, 9, 'Iusto nihil amet.', '9789700151175', '4th Edition', 'German', 131.99, 8, 6, '2011', 'Maxime adipisci non reiciendis eum hic doloremque ullam. Alias aut nulla nemo rerum. Laboriosam laudantium quae eligendi quos corrupti sint similique.', 'https://picsum.photos/seed/book9/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
 (10, 7, 10, 8, 'Et quas non.', '9788619073753', '2th Edition', 'English', 162.99, 26, 25, '2009', 'Qui minima sit similique cumque. Sit explicabo laboriosam quidem ex non sed facere earum. Occaecati esse distinctio iusto commodi. Porro sed et veritatis qui.', 'https://picsum.photos/seed/book10/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
-(11, 2, 15, 10, 'Fuga accusantium debitis velit aut.', '9782953726853', '2th Edition', 'English', 70.99, 9, 8, '2020', 'Architecto nihil iure distinctio et incidunt dolores. Dolore rerum nostrum quia hic explicabo. Ex ut dolorum facilis placeat voluptatem.', 'https://picsum.photos/seed/book11/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
+(11, 2, 15, 10, 'Fuga accusantium debitis velit aut.', '9782953726853', '2th Edition', 'English', 70.99, 9, 8, '2020', 'Architecto nihil iure distinctio et incidunt dolores. Dolore rerum nostrum quia hic explicabo. Ex ut dolorum facilis placeat voluptatem.', 'https://picsum.photos/seed/book11/300/450', 'available', '2026-08-10 09:49:40', '2026-09-25 05:51:30', NULL),
 (12, 2, 9, 6, 'Voluptas libero deserunt ut.', '9787354087250', '4th Edition', 'German', 148.99, 30, 28, '2025', 'Blanditiis quod ex quae vero sint. Sed minus totam tempore. Totam animi aut sequi in alias.', 'https://picsum.photos/seed/book12/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
 (13, 1, 2, 4, 'Maiores omnis qui.', '9787879041754', '3th Edition', 'English', 141.99, 5, 5, '2006', 'Dolorem quas voluptatem et labore libero. Necessitatibus nesciunt maxime architecto et qui. Officia consequatur nesciunt corporis magni in id.', 'https://picsum.photos/seed/book13/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:40', NULL),
 (14, 8, 20, 7, 'Alias velit soluta sed.', '9783961645263', '3th Edition', 'Spanish', 53.99, 7, 5, '2009', 'Inventore neque iure et deserunt. Aut excepturi sit ipsam odio optio aperiam provident. Tempore omnis voluptate consequatur consequatur corporis. Quam sit iure et maxime quod minus ea explicabo.', 'https://picsum.photos/seed/book14/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
@@ -131,11 +131,11 @@ INSERT INTO `books` (`id`, `category_id`, `author_id`, `publisher_id`, `title`, 
 (31, 3, 3, 10, 'Beatae maiores ea non.', '9788458382119', '3th Edition', 'German', 65.99, 13, 12, '2015', 'Consequatur aliquam ex optio sapiente aliquid. Voluptas ad reiciendis voluptas neque.', 'https://picsum.photos/seed/book31/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
 (32, 6, 8, 8, 'Quaerat ab et voluptatem.', '9785002388843', '3th Edition', 'Spanish', 176.99, 10, 10, '2007', 'Odio dolores aut nesciunt eligendi. Omnis maxime mollitia corporis sed accusantium. Nobis et molestias mollitia iure nulla quas. Nostrum tempora ipsum fugiat quibusdam.', 'https://picsum.photos/seed/book32/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:40', NULL),
 (33, 5, 11, 6, 'Quaerat temporibus eos voluptas.', '9789734195954', '4th Edition', 'German', 16.99, 5, 5, '2001', 'Repudiandae iure optio dolorum provident ut ex beatae. Assumenda eaque nulla est cumque. Esse minima reiciendis nam non id tempora.', 'https://picsum.photos/seed/book33/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:40', NULL),
-(34, 1, 17, 5, 'Ea minima modi voluptatibus.', '9788641685719', '3th Edition', 'English', 197.99, 21, 20, '2018', 'Possimus est occaecati laudantium molestiae aperiam nobis. Aspernatur est velit adipisci et adipisci.', 'https://picsum.photos/seed/book34/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
+(34, 1, 17, 5, 'Ea minima modi voluptatibus.', '9788641685719', '3th Edition', 'English', 197.99, 21, 19, '2018', 'Possimus est occaecati laudantium molestiae aperiam nobis. Aspernatur est velit adipisci et adipisci.', 'https://picsum.photos/seed/book34/300/450', 'available', '2026-08-10 09:49:40', '2026-09-25 05:47:59', NULL),
 (35, 5, 2, 1, 'Vitae quia dolores atque.', '9788490497701', '4th Edition', 'English', 146.99, 14, 14, '2026', 'Eos officiis sapiente aut enim vel. Aut consequatur nulla doloremque. Sunt reprehenderit ab ducimus qui aut iusto dolores.', 'https://picsum.photos/seed/book35/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:40', NULL),
 (36, 3, 3, 2, 'Doloribus non laudantium blanditiis praesentium.', '9783670104477', '4th Edition', 'German', 113.99, 15, 14, '2001', 'Exercitationem tempora quaerat enim sit. Laudantium neque nobis sed consectetur quo modi ad. Ipsum quia consequuntur illum. Dolorem voluptates distinctio similique velit nulla nihil.', 'https://picsum.photos/seed/book36/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
 (37, 1, 19, 1, 'Autem incidunt officiis.', '9782259027903', '2th Edition', 'Spanish', 29.99, 25, 21, '2021', 'Facilis et eos aut asperiores aut non consequuntur. Quibusdam minima qui esse aspernatur corrupti eaque at ea. Iure hic quidem aut est veniam optio ut. Sed sed necessitatibus officiis quaerat culpa. Assumenda itaque modi fugiat ut omnis non.', 'https://picsum.photos/seed/book37/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
-(38, 4, 2, 3, 'Provident sint.', '9788901629558', '1th Edition', 'German', 115.99, 19, 19, '2016', 'Voluptatem sequi harum aut inventore eius doloremque. Architecto vitae dolores debitis consequatur modi et suscipit. Sit sint quia id ut quaerat vitae eum perspiciatis.', 'https://picsum.photos/seed/book38/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:40', NULL),
+(38, 4, 2, 3, 'Provident sint.', '9788901629558', '1th Edition', 'German', 115.99, 19, 18, '2016', 'Voluptatem sequi harum aut inventore eius doloremque. Architecto vitae dolores debitis consequatur modi et suscipit. Sit sint quia id ut quaerat vitae eum perspiciatis.', 'https://picsum.photos/seed/book38/300/450', 'available', '2026-08-10 09:49:40', '2026-09-25 05:57:46', NULL),
 (39, 1, 17, 9, 'Qui voluptas autem et.', '9789400565739', '4th Edition', 'English', 172.99, 14, 13, '2018', 'Fuga fugit architecto voluptatem numquam voluptas itaque nam. Nisi impedit odit qui voluptas numquam cum laboriosam sed. Est ut dolorum pariatur totam labore. Voluptatum voluptas libero officiis minima illo totam.', 'https://picsum.photos/seed/book39/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
 (40, 4, 4, 8, 'Alias eum.', '9787515202265', '2th Edition', 'Spanish', 27.99, 11, 11, '2013', 'Omnis ratione corrupti iste natus harum autem beatae quia. Eum qui et blanditiis quia et consequatur itaque accusamus.', 'https://picsum.photos/seed/book40/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:40', NULL),
 (41, 1, 4, 2, 'Odit quaerat et.', '9784710674551', '3th Edition', 'Spanish', 200.99, 11, 10, '2001', 'Labore quam nam quae eos ipsam eaque est ut. In libero ut qui architecto. Et ut similique quis illo.', 'https://picsum.photos/seed/book41/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
@@ -148,7 +148,7 @@ INSERT INTO `books` (`id`, `category_id`, `author_id`, `publisher_id`, `title`, 
 (48, 3, 10, 8, 'Iste impedit incidunt dolorem.', '9787054496596', '4th Edition', 'Spanish', 65.99, 19, 18, '2026', 'Et officia voluptatibus non. Incidunt quasi asperiores itaque sit corrupti iste nisi. Numquam error sit modi. Facere aut nesciunt dolores alias iste.', 'https://picsum.photos/seed/book48/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:51', NULL),
 (49, 2, 2, 7, 'Nostrum nesciunt non.', '9784024662599', '3th Edition', 'French', 71.99, 30, 30, '2001', 'Fugit excepturi voluptatem est rerum commodi animi inventore. Sed quam illo voluptatem est iusto ipsum. Ea in sit vitae sapiente quis consectetur.', 'https://picsum.photos/seed/book49/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:40', NULL),
 (50, 8, 10, 3, 'Occaecati possimus.', '9788657812601', '1th Edition', 'Spanish', 45.99, 8, 8, '2002', 'Est id et ea ducimus. Consequatur distinctio perspiciatis incidunt expedita temporibus quia corporis. Dolorum est cumque eius fugiat non necessitatibus corrupti. Numquam tenetur deleniti doloribus aperiam est vel dicta non. Tempore excepturi neque voluptatum sed.', 'https://picsum.photos/seed/book50/300/450', 'available', '2026-08-10 09:49:40', '2026-08-10 09:49:40', NULL),
-(51, 6, 19, 3, 'data', '1234', '2', 'English', 1000.00, 1, 1, '2022', 'nothing', 'book-covers/M8cf0wkppMl0EtxyiwWyrnflYOEn10W2yBPWCQ6J.webp', 'available', '2026-08-10 10:11:49', '2026-08-10 10:11:49', 'ebooks/fjTQrsLsevPReT3ZgBOsZM3rpTKd8VvdacmxV90p.pdf');
+(51, 6, 19, 3, 'data', '1234', '2', 'English', 1000.00, 1, 1, '2022', 'nothing', 'book-covers/M8cf0wkppMl0EtxyiwWyrnflYOEn10W2yBPWCQ6J.webp', 'available', '2026-08-10 10:11:49', '2026-09-25 07:55:08', 'ebooks/fjTQrsLsevPReT3ZgBOsZM3rpTKd8VvdacmxV90p.pdf');
 
 -- --------------------------------------------------------
 
@@ -164,9 +164,9 @@ CREATE TABLE `book_issues` (
   `return_date` date NOT NULL,
   `actual_return_date` date DEFAULT NULL,
   `fine` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `fine_status` enum('unpaid','paid','waived') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'unpaid',
-  `waiver_reason` text COLLATE utf8mb4_unicode_ci,
-  `status` enum('issued','returned','overdue') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'issued',
+  `fine_status` enum('unpaid','paid','waived') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'unpaid',
+  `waiver_reason` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `status` enum('issued','returned','overdue') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'issued',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -215,7 +215,11 @@ INSERT INTO `book_issues` (`id`, `book_id`, `member_id`, `issue_date`, `return_d
 (37, 11, 6, '2026-07-29', '2026-08-12', NULL, 0.00, 'unpaid', NULL, 'issued', '2026-08-10 09:49:51', '2026-08-10 09:49:51'),
 (38, 39, 5, '2026-07-20', '2026-08-03', NULL, 0.00, 'unpaid', NULL, 'issued', '2026-08-10 09:49:51', '2026-08-10 09:49:51'),
 (39, 18, 18, '2026-08-10', '2026-08-24', NULL, 0.00, 'unpaid', NULL, 'issued', '2026-08-10 09:49:51', '2026-08-10 09:49:51'),
-(40, 9, 29, '2026-07-31', '2026-08-14', NULL, 0.00, 'unpaid', NULL, 'issued', '2026-08-10 09:49:51', '2026-08-10 09:49:51');
+(40, 9, 29, '2026-07-31', '2026-08-14', NULL, 0.00, 'unpaid', NULL, 'issued', '2026-08-10 09:49:51', '2026-08-10 09:49:51'),
+(41, 51, 31, '2026-09-24', '2026-10-08', '2026-09-25', 0.00, 'unpaid', NULL, 'returned', '2026-09-24 01:44:02', '2026-09-25 07:55:08'),
+(42, 34, 35, '2026-09-25', '2026-10-09', NULL, 0.00, 'unpaid', NULL, 'issued', '2026-09-25 05:47:59', '2026-09-25 05:47:59'),
+(43, 11, 35, '2026-09-25', '2026-10-09', '2026-09-25', 0.00, 'unpaid', NULL, 'returned', '2026-09-25 05:48:41', '2026-09-25 05:51:30'),
+(44, 38, 36, '2026-09-25', '2026-10-09', NULL, 0.00, 'unpaid', NULL, 'issued', '2026-09-25 05:57:46', '2026-09-25 05:57:46');
 
 -- --------------------------------------------------------
 
@@ -228,7 +232,7 @@ CREATE TABLE `book_reservations` (
   `book_id` bigint UNSIGNED NOT NULL,
   `member_id` bigint UNSIGNED NOT NULL,
   `reserved_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `status` enum('pending','fulfilled','cancelled','expired') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `status` enum('pending','fulfilled','cancelled','expired') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -247,7 +251,10 @@ INSERT INTO `book_reservations` (`id`, `book_id`, `member_id`, `reserved_at`, `s
 (7, 38, 24, '2026-08-07 18:30:00', 'fulfilled', '2026-08-10 09:49:51', '2026-08-10 09:49:51'),
 (8, 4, 3, '2026-08-05 18:30:00', 'pending', '2026-08-10 09:49:51', '2026-08-10 09:49:51'),
 (9, 13, 12, '2026-08-08 18:30:00', 'fulfilled', '2026-08-10 09:49:51', '2026-08-10 09:49:51'),
-(10, 15, 10, '2026-08-03 18:30:00', 'pending', '2026-08-10 09:49:51', '2026-08-10 09:49:51');
+(10, 15, 10, '2026-08-03 18:30:00', 'pending', '2026-08-10 09:49:51', '2026-08-10 09:49:51'),
+(11, 51, 31, '2026-09-24 01:44:05', 'fulfilled', '2026-09-24 01:44:05', '2026-09-25 07:55:08'),
+(12, 51, 36, '2026-09-25 05:56:01', 'cancelled', '2026-09-25 05:56:01', '2026-09-25 05:57:04'),
+(13, 51, 36, '2026-09-25 05:57:38', 'pending', '2026-09-25 05:57:38', '2026-09-25 05:57:38');
 
 -- --------------------------------------------------------
 
@@ -256,10 +263,24 @@ INSERT INTO `book_reservations` (`id`, `book_id`, `member_id`, `reserved_at`, `s
 --
 
 CREATE TABLE `cache` (
-  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `expiration` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cache`
+--
+
+INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
+('laravel-cache-b6692ea5df920cad691c20319a6fffd7a4a766b8', 'i:1;', 1790334789),
+('laravel-cache-b6692ea5df920cad691c20319a6fffd7a4a766b8:timer', 'i:1790334789;', 1790334789),
+('laravel-cache-cb4e5208b4cd87268b208e49452ed6e89a68e0b8', 'i:1;', 1790234083),
+('laravel-cache-cb4e5208b4cd87268b208e49452ed6e89a68e0b8:timer', 'i:1790234083;', 1790234083),
+('laravel-cache-cb7a1d775e800fd1ee4049f7dca9e041eb9ba083', 'i:1;', 1790335274),
+('laravel-cache-cb7a1d775e800fd1ee4049f7dca9e041eb9ba083:timer', 'i:1790335274;', 1790335274),
+('laravel-cache-fc074d501302eb2b93e2554793fcaf50b3bf7291', 'i:1;', 1790335064),
+('laravel-cache-fc074d501302eb2b93e2554793fcaf50b3bf7291:timer', 'i:1790335064;', 1790335064);
 
 -- --------------------------------------------------------
 
@@ -268,8 +289,8 @@ CREATE TABLE `cache` (
 --
 
 CREATE TABLE `cache_locks` (
-  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `owner` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `owner` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `expiration` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -281,9 +302,9 @@ CREATE TABLE `cache_locks` (
 
 CREATE TABLE `categories` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `status` enum('active','inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `status` enum('active','inactive') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -310,11 +331,11 @@ INSERT INTO `categories` (`id`, `name`, `description`, `status`, `created_at`, `
 
 CREATE TABLE `failed_jobs` (
   `id` bigint UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -329,7 +350,7 @@ CREATE TABLE `fines` (
   `user_id` bigint UNSIGNED NOT NULL,
   `book_issue_id` bigint UNSIGNED NOT NULL,
   `amount` decimal(8,2) NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'unpaid',
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'unpaid',
   `paid_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -343,8 +364,8 @@ CREATE TABLE `fines` (
 
 CREATE TABLE `jobs` (
   `id` bigint UNSIGNED NOT NULL,
-  `queue` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `attempts` smallint UNSIGNED NOT NULL,
   `reserved_at` int UNSIGNED DEFAULT NULL,
   `available_at` int UNSIGNED NOT NULL,
@@ -358,13 +379,13 @@ CREATE TABLE `jobs` (
 --
 
 CREATE TABLE `job_batches` (
-  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `total_jobs` int NOT NULL,
   `pending_jobs` int NOT NULL,
   `failed_jobs` int NOT NULL,
-  `failed_job_ids` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
+  `failed_job_ids` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `options` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `cancelled_at` int DEFAULT NULL,
   `created_at` int NOT NULL,
   `finished_at` int DEFAULT NULL
@@ -379,11 +400,11 @@ CREATE TABLE `job_batches` (
 CREATE TABLE `members` (
   `id` bigint UNSIGNED NOT NULL,
   `user_id` bigint UNSIGNED NOT NULL,
-  `membership_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `membership_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `joining_date` date NOT NULL,
-  `address` text COLLATE utf8mb4_unicode_ci,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` enum('active','inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
+  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('active','inactive') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -422,7 +443,11 @@ INSERT INTO `members` (`id`, `user_id`, `membership_no`, `joining_date`, `addres
 (27, 28, 'MEM-94735', '2026-06-07', '310 Ruthie Island Apt. 775\nNew Aiyanaberg, MN 51322-9096', '+13616280697', 'active', '2026-08-10 09:49:50', '2026-08-10 09:49:50'),
 (28, 29, 'MEM-15093', '2026-06-20', '5056 Anastasia Inlet Apt. 896\nRobbview, MS 56011', '+1-762-831-0385', 'active', '2026-08-10 09:49:50', '2026-08-10 09:49:50'),
 (29, 30, 'MEM-90140', '2025-11-17', '535 Kreiger Square Apt. 535\nNorth Prestonfort, SD 59255', '+1-757-788-7048', 'active', '2026-08-10 09:49:50', '2026-08-10 09:49:50'),
-(30, 31, 'MEM-25937', '2025-10-31', '67046 Ashly Mill Apt. 218\nWest Vincenzaville, NC 74748', '+1 (551) 889-6607', 'active', '2026-08-10 09:49:51', '2026-08-10 09:49:51');
+(30, 31, 'MEM-25937', '2025-10-31', '67046 Ashly Mill Apt. 218\nWest Vincenzaville, NC 74748', '+1 (551) 889-6607', 'active', '2026-08-10 09:49:51', '2026-08-10 09:49:51'),
+(31, 32, 'MEM-MVFJBH', '2026-09-24', NULL, NULL, 'active', '2026-09-24 01:43:16', '2026-09-24 01:43:16'),
+(32, 33, 'MEM-BGKZYU', '2026-09-25', NULL, NULL, 'active', '2026-09-25 05:38:11', '2026-09-25 05:38:11'),
+(35, 36, 'MEM-NEQXMY', '2026-09-25', NULL, NULL, 'active', '2026-09-25 05:46:04', '2026-09-25 05:46:04'),
+(36, 37, 'MEM-CNGQOL', '2026-09-25', NULL, NULL, 'active', '2026-09-25 05:49:54', '2026-09-25 05:49:54');
 
 -- --------------------------------------------------------
 
@@ -432,7 +457,7 @@ INSERT INTO `members` (`id`, `user_id`, `membership_no`, `joining_date`, `addres
 
 CREATE TABLE `migrations` (
   `id` int UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -466,11 +491,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `notifications` (
-  `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `notifiable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `notifiable_id` bigint UNSIGNED NOT NULL,
-  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `read_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -483,8 +508,8 @@ CREATE TABLE `notifications` (
 --
 
 CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -496,12 +521,12 @@ CREATE TABLE `password_reset_tokens` (
 
 CREATE TABLE `publishers` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` text COLLATE utf8mb4_unicode_ci,
-  `website` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` enum('active','inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `website` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('active','inactive') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -529,11 +554,11 @@ INSERT INTO `publishers` (`id`, `name`, `email`, `phone`, `address`, `website`, 
 --
 
 CREATE TABLE `sessions` (
-  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint UNSIGNED DEFAULT NULL,
-  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_agent` text COLLATE utf8mb4_unicode_ci,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip_address` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_activity` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -542,7 +567,14 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('FMoouCUB0lNGilyVcx2kdgMCjg95KM1SRuXG7YIr', 1, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiI2akZ5VktYVEJIQWFJWG9TZ0o2OURUbVBHMU1IdFJkcm9KaE9FSlBQIiwidXJsIjpbXSwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cL2xvY2FsaG9zdDo4MDAwIiwicm91dGUiOiJob21lIn0sIl9mbGFzaCI6eyJvbGQiOltdLCJuZXciOltdfSwibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiOjF9', 1786376519);
+('22WhslvB5SSs9rVxB1ea4VBHEzeq7e5o2kNJY9OR', 33, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiI3ZlUzU2g4SG1qZ1BRdTJWYmluUllCWnMxUnNzOEFtak9vVkc4Rzh0IiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAxIiwicm91dGUiOiJob21lIn0sIl9mbGFzaCI6eyJvbGQiOltdLCJuZXciOltdfSwibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiOjMzfQ==', 1790334497),
+('8kjFGbZqiPhfYprUcsyJWBNSHlEPN4IBpuZG27JR', NULL, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJpUGdYak1MQ2ozZXJ6WXdDY2ZKTFhUUUlmQzYzcm9kcTM4S00zOGtHIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAxXC9sb2dpbiIsInJvdXRlIjoibG9naW4ifSwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119fQ==', 1790332205),
+('af0ustmvpq7b6taWe60yykV8Pt4jqgxKmvlUl4Zz', NULL, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.137.0 Chrome/148.0.7778.280 Electron/42.10.0 Safari/537.36', 'eyJfdG9rZW4iOiI1RmVsaDJpYWZiVVB3cDdWZ3owMUhycWVQMFpYazl0dllOR2tiWW9TIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAwIiwicm91dGUiOiJob21lIn0sIl9mbGFzaCI6eyJvbGQiOltdLCJuZXciOltdfX0=', 1790403775),
+('d38fyZ4TmGKy94QrxeWagryHMQmFjKwepLOPbry3', NULL, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJZQXJJWExoQzBYVEhGb29sd0owazlVQ29qR25ZaGtjUWdCYjdYOHQ2IiwidXJsIjp7ImludGVuZGVkIjoiaHR0cDpcL1wvbG9jYWxob3N0OjgwMDBcL2Rhc2hib2FyZCJ9LCJfcHJldmlvdXMiOnsidXJsIjoiaHR0cDpcL1wvbG9jYWxob3N0OjgwMDBcL2xvZ2luIiwicm91dGUiOiJsb2dpbiJ9LCJfZmxhc2giOnsib2xkIjpbXSwibmV3IjpbXX19', 1790403952),
+('ggX7kynjrJwXrvHYY5cSguq8fYObdFWiYKIndroR', 32, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJrc3d4ZlhQb3NiVFZYQklNUFBEa0V2MlN6dTBCeklTdG01cHh3dXZ3IiwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119LCJfcHJldmlvdXMiOnsidXJsIjoiaHR0cDpcL1wvMTI3LjAuMC4xOjgwMDFcL2FkbWluXC9ib29rcyIsInJvdXRlIjoiYWRtaW4uYm9va3MuaW5kZXgifSwidXJsIjpbXSwibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiOjMyfQ==', 1790342803),
+('hUXjiLsZU9bhdeNRYsMt9hZ4NShXfvwAhGULIDfn', 34, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJqZEZycmdjcTZLZUhFTHh2djA0YVEzWFZ2S2NBY1BkTWR3YmhpaGlxIiwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119LCJfcHJldmlvdXMiOnsidXJsIjoiaHR0cDpcL1wvMTI3LjAuMC4xOjgwMDFcL3JlZ2lzdGVyIiwicm91dGUiOiJyZWdpc3RlciJ9LCJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI6MzR9', 1790334818),
+('kZqUlgTyROxXYxyUArK8itRbrD4UWltEn6c1tQvY', 37, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJ2OVBvRjNRekt4clU5WTNsU0NxdzNkdDF0Wk52ZE9OT2lkb1Q3YWI5IiwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119LCJfcHJldmlvdXMiOnsidXJsIjoiaHR0cDpcL1wvMTI3LjAuMC4xOjgwMDFcL21lbWJlclwvZmluZXMiLCJyb3V0ZSI6Im1lbWJlci5maW5lcy5pbmRleCJ9LCJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI6Mzd9', 1790335704),
+('nExKePnTZLkgeVQ7oevPTECqcBcIjofaR6G2BVCz', NULL, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.137.0 Chrome/148.0.7778.280 Electron/42.10.0 Safari/537.36', 'eyJfdG9rZW4iOiJoWHZoUERMMEcwSXhHNlY2dzVlMEczUG1PZFpHVURZdG5zTW9wRWlTIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAxIiwicm91dGUiOiJob21lIn0sIl9mbGFzaCI6eyJvbGQiOltdLCJuZXciOltdfX0=', 1790332077);
 
 -- --------------------------------------------------------
 
@@ -553,11 +585,11 @@ INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, 
 CREATE TABLE `supports` (
   `id` bigint UNSIGNED NOT NULL,
   `user_id` bigint UNSIGNED DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` enum('pending','in_progress','resolved') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` enum('pending','in_progress','resolved') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -570,13 +602,13 @@ CREATE TABLE `supports` (
 
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `role` enum('Admin','Member') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Member',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role` enum('Admin','Member') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Member',
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -616,7 +648,11 @@ INSERT INTO `users` (`id`, `name`, `email`, `avatar`, `role`, `email_verified_at
 (28, 'Miss Camille Wunsch', 'dawson51@example.net', NULL, 'Member', NULL, '$2y$12$xULxNlScnRkK0wq19ncfm.xVouSFQd3YmhMZAO0Hve/Zx08v6sVV.', NULL, '2026-08-10 09:49:50', '2026-08-10 09:49:50'),
 (29, 'Garfield Brakus', 'savion.hammes@example.com', NULL, 'Member', NULL, '$2y$12$vKZvs2SKLl8tNJknoRiMSehOJQDr/CHfqf8wnZgN3QnzeTTa9bMqe', NULL, '2026-08-10 09:49:50', '2026-08-10 09:49:50'),
 (30, 'Armani Schuppe', 'bnader@example.net', NULL, 'Member', NULL, '$2y$12$IKE7fzD3SUcQBx3a4kJesuZrosNHLYNv.yyNd23puObjK3IdAt3Wa', NULL, '2026-08-10 09:49:50', '2026-08-10 09:49:50'),
-(31, 'Bonnie Adams', 'mraz.tabitha@example.com', NULL, 'Member', NULL, '$2y$12$Ye/2RtdxHqZPXMtfg.3GaeeNV4sNDc6EhGeXGWWMoESYYQvYdamGi', NULL, '2026-08-10 09:49:51', '2026-08-10 09:49:51');
+(31, 'Bonnie Adams', 'mraz.tabitha@example.com', NULL, 'Member', NULL, '$2y$12$Ye/2RtdxHqZPXMtfg.3GaeeNV4sNDc6EhGeXGWWMoESYYQvYdamGi', NULL, '2026-08-10 09:49:51', '2026-08-10 09:49:51'),
+(32, 'Ranajit', 'ranajit0217@gmail.com', NULL, 'Admin', '2026-09-24 01:43:43', '$2y$12$pmudV1tXG3nQdajRbtRKxOxv3grbqhfIQLGPhmo6iD.fN8Hlptxa6', NULL, '2026-09-24 01:43:16', '2026-09-24 01:43:43'),
+(33, 'Member User 2', 'member@yopmail.com', NULL, 'Member', '2026-09-25 05:42:09', '$2y$12$7Kxg3hkgpLK8P0e50FhaRuY8eHyF8XX/d5gUlsf9tnjdomXCE7Ys2', NULL, '2026-09-25 05:38:11', '2026-09-25 05:42:09'),
+(36, 'mem user 7', 'member7@yopmail.com', NULL, 'Member', '2026-09-25 05:46:44', '$2y$12$YX06MuzhbouJMdc5RFoR0eNmyPMNsa7ifX3yLjHmomKOPM9NrN6/u', NULL, '2026-09-25 05:46:04', '2026-09-25 05:46:44'),
+(37, 'Member User 60', 'member60@yopmail.com', NULL, 'Admin', '2026-09-25 05:50:14', '$2y$12$qj3NFNYIH2XcDvSYibs42ObxzOgVERUIq.nxqxqvIg0jDdUgTt4y2', NULL, '2026-09-25 05:49:54', '2026-09-25 05:50:14');
 
 --
 -- Indexes for dumped tables
@@ -781,13 +817,13 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `book_issues`
 --
 ALTER TABLE `book_issues`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `book_reservations`
 --
 ALTER TABLE `book_reservations`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -817,7 +853,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -841,7 +877,7 @@ ALTER TABLE `supports`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Constraints for dumped tables
